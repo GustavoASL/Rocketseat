@@ -75,11 +75,16 @@ body * {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+
+  animation: slide-in 0.4s;
 }
 
 .dark #switch button {
-  right: initial;
-  left: 0;
+  animation: slide-back 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -162,5 +167,24 @@ footer {
   }
   .dark {
     --bg-url: url(./assets/bg-desktop.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-back {
+  from {
+    right: 0;
+  }
+  to {
+    right: 50%;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    right: 50%;
+  }
+  to {
+    right: 0;
   }
 }
